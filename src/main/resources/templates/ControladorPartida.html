@@ -1,0 +1,48 @@
+<!-- Author: Adilson Arbuez -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/estilos.css" />
+<title>Control de partidas</title>
+</head>
+<body>
+
+<div th:insert="Components::menu"></div>
+	<br>
+<br>
+<br>
+<div class="container">
+<h1>Gestion de partidas y elementos afines</h1>
+
+<th:block th:if="${errorAdd==true}">
+<p style="color: red">el ultimo detalle no se guardo, intentelo de nuevo</p>
+</th:block>
+
+<form action="/LibroDiario" method="get">
+<input type="submit" value="Revisar partidas" class="opcion">
+</form>
+<br>
+<form action="/verCuentas" method="get">
+<input type="submit" value="Revisar cuentas" class="opcion">
+</form> 
+
+<hr>
+<p>Insertar nueva partida</p>
+<form action="/IniciaPartida" method="post">
+<label for="fecha">Fecha:&nbsp;</label>
+<input type ="date" name="fecha" id="fecha">
+
+<label for="enunciado">Enunciado:&nbsp;</label>
+<input type="text" name="enunciado" id="enunciado">
+<input type="submit" value="Crear partida">
+</form>
+
+</div>
+	<script src="/bootstrap/js/jquery-3.4.1.min.js"></script>    
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

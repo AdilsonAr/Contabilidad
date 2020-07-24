@@ -1,0 +1,59 @@
+<!-- Author: Adilson Arbuez -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/estilos.css" />
+<title>Balanza de comprobacion</title>
+</head>
+<body>
+<div th:insert="Components::menu"></div>
+<br>
+<br>
+<br>
+<div class="container">
+<table class="table">
+<tr>
+<td colspan="2"></td>
+<td colspan="2">Movimientos</td>
+<td colspan="2">Saldos</td>
+</tr>
+
+<tr>
+<td>Codigo</td>
+<td>Cuenta</td>
+<td>Cargos</td>
+<td>Abonos</td>
+<td>Deudor</td>
+<td>Acreedor</td>
+</tr>
+
+<th:block th:if="${empty==false}">
+
+<th:block th:each="linea :${lineas}">
+<tr>
+<td th:text="${linea.codigo}"></td>
+<td th:text="${linea.concepto}"></td>
+<td th:text="${linea.debe}"></td>
+<td th:text="${linea.haber}"></td>
+<td th:text="${linea.deudor}"></td>
+<td th:text="${linea.acreedor}"></td>
+</tr>
+</th:block>
+<tr>
+<td colspan="2">Totales</td>
+<td th:text="${debe}"></td>
+<td th:text="${haber}"></td>
+<td th:text="${deudor}"></td>
+<td th:text="${acreedor}"></td>
+</tr>
+</th:block>
+</table>
+</div>
+	<script src="/bootstrap/js/jquery-3.4.1.min.js"></script>    
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

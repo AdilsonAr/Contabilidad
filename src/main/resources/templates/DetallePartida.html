@@ -1,0 +1,79 @@
+<!-- Author: Adilson Arbuez -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+<div th:insert="Components::menu"></div>
+<br>
+<br>
+<br>
+
+<div class="container">
+<th:block th:if="${denegado==true}">
+<p style="color: red">La partida no cuadra</p>
+</th:block>
+
+<th:block th:if="${error==true}">
+<p style="color: red">el ultimo detalle no se guardo, intentelo de nuevo</p>
+</th:block>
+<h1>Nuevo movimiento</h1>
+
+<form action="/NuevoDetalle" method="post">
+		<table class="table">
+			<caption>Cuerpo de la partida</caption>
+			<thead>
+				<tr>
+					<th>Descripcion</th>
+					<th>Debe</th>
+					<th>Haber</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<th:block th:if="${lista!=null}">
+					<th:block th:each="linea :${lista}">
+						<tr>
+							<td th:text="${linea.codCuenta}"></td>
+							<td th:text="${linea.debe}"></td>
+							<td th:text="${linea.haber}"></td>
+						</tr>
+					</th:block>
+				</th:block>
+				
+				<tr>
+					<td><select name="descripcion">
+							<th:block th:each="cuenta :${listaCuentas}">
+								<option th:text="${cuenta.descripcion}"
+									th:value="${cuenta.codigoCuenta}"></option>
+							</th:block>
+					</select></td>
+					<td><input type="number" id="idDebe" name="debe" step="0.01" onFocus="idHaber.value='0.0';"></td>
+					<td><input type="number" id="idHaber" name="haber" step="0.01" onFocus="idDebe.value='0.0';"></td>
+				</tr>
+
+			</tbody>
+		</table>
+		<input type="submit" value="Agregar nuevo movimiento de cuenta">
+</form>
+
+<form action="/AgregaPartida" method="get">
+<input type="submit" value="Terminar partida">
+</form>
+<br>
+<form action="/Cancelar" method="get">
+<input type="submit" value="Cancelar">
+</form>
+</div>
+
+<script src="/bootstrap/js/jquery-3.4.1.min.js"></script>    
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

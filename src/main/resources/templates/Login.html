@@ -1,0 +1,38 @@
+<!-- Author: Adilson Arbuez -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+<title>Login</title>
+</head>
+<body style="text-align: center;">
+<br><br>
+<img style="width: 180px;height: 180px;" alt="User icon" src="../static/images/User.jpg" th:src="@{images/User.jpg}">
+<br><br>
+<h1>
+Inserte sus credenciales :)
+</h1>
+
+<form action="/Login" method="post">
+<table style="margin-left:38%;">
+<tr>
+<td>user</td>
+<td><input type="text" name="user"></td>
+</tr>
+
+<tr>
+<td>Password</td>
+<td><input type="password" name="pass"></td>
+</tr>
+
+</table >
+<br>
+<input type="submit" value="Sign in" style="width: 160px; height: 40px;">
+</form>
+	<script src="/bootstrap/js/jquery-3.4.1.min.js"></script>    
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

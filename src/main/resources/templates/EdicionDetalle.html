@@ -1,0 +1,55 @@
+<!-- Author: Adilson Arbuez -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/estilos.css" />
+<title>Edicion de partidas</title>
+</head>
+<body>
+<div th:insert="Components::menu"></div>
+<br>
+<br>
+<br>
+<div class="container">
+<form action="/Edicion" method="post">
+<input type="hidden" name="idPartida" th:value="${idPartida}">
+<input type="hidden" name="id" th:value="${detalle.id}">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Descripcion</th>
+				<th>Debe</th>
+				<th>Haber</th>
+			</tr>
+		</thead>
+			<tbody>
+				<tr>
+					<td>
+					<select name="descripcion">
+							<th:block th:each="cuenta :${listaCuentas}">
+								<option th:text="${cuenta.descripcion}"
+									th:value="${cuenta.codigoCuenta}" 
+									th:selected="${cuenta.codigoCuenta==detalle.codCuenta}"></option>
+							</th:block>
+					</select>
+					</td>
+					<td><input type="number" id="idDebe" name="debe" step="0.01" th:value="${detalle.debe}" onFocus="idHaber.value='0.0';"></td>
+					<td><input type="number" id="idHaber" name="haber" step="0.01" th:value="${detalle.haber}" onFocus="idDebe.value='0.0';"></td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="submit" value="Modificar">
+</form>
+<br>
+<form action="/LibroDiario" method="get">
+<input type="submit" value="cancelar">
+</form>
+</div>
+	<script src="/bootstrap/js/jquery-3.4.1.min.js"></script>    
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

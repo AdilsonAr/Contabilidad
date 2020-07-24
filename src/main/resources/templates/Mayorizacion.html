@@ -1,0 +1,64 @@
+<!-- Author: Adilson Arbuez -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/estilos.css" />
+<title>Mayorizacion</title>
+</head>
+<body>
+<div th:insert="Components::menu"></div>
+<br>
+<br>
+<br>
+
+<div class="container">
+
+<form action="/Mayorizacion/detalle" method="get">
+<label for="fecha">Desde:&nbsp;</label>
+<input type ="date" name="fecha1" id="fecha" th:value="${fecha1}">
+
+<label for="fecha">Hasta:&nbsp;</label>
+<input type ="date" name="fecha2" id="fecha" th:value="${fecha2}">
+
+<input type="submit" value="Mostrar" class="opcion">
+</form>
+
+<table class="table">
+<tr>
+<td>Fecha</td>
+<td>Partida</td>
+<td>Codigo</td>
+<td>Concepto</td>
+<td>Enunciado</td>
+<td>Suma debe</td>
+<td>Suma haber</td>
+<td>Saldo</td>
+</tr>
+<th:block th:if="${empty==false}">
+
+<th:block th:each="linea :${lineas}">
+<tr>
+<td th:text="${linea.fecha}"></td>
+<td th:text="${linea.partida}"></td>
+<td th:text="${linea.codigo}"></td>
+<td th:text="${linea.concepto}"></td>
+<td th:text="${linea.enunciado}"></td>
+<td th:text="${linea.debe}"></td>
+<td th:text="${linea.haber}"></td>
+<td th:text="${linea.saldo}"></td>
+</tr>
+</th:block>
+
+</th:block>
+</table>
+</div>
+
+	<script src="/bootstrap/js/jquery-3.4.1.min.js"></script>    
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

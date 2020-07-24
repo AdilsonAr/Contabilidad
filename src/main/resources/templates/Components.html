@@ -1,0 +1,46 @@
+<!-- Author: Adilson Arbuez -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/estilos.css" />
+<title>Components</title>
+</head>
+<body>
+
+<div  id="menu" th:fragment="menu">
+		<nav class="navbar navbar-expand-lg navbar-light">
+
+			<button class="navbar-toggler" data-target="menu" data-toggle="collapse">
+				<span class="navbar-toggler-icon">
+					
+				</span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="menu">
+				<ul class="navbar-nav mr-auto">
+					<li class="navbar-item"><a href="/ControladorPartida"
+						class="nav-link">Partidas</a></li>
+
+					<li class="navbar-item"><a href="/Mayorizacion"
+						class="nav-link">Mayorizacion</a></li>
+					<li class="navbar-item"><a href="/BalanzaComprobacion"
+						class="nav-link">Balanza de comprobacion</a></li>
+					<li class="navbar-item"><a href="/Resultados" class="nav-link">Estado
+							de resultados</a></li>
+
+					<li class="navbar-item"><a href="/Balance" class="nav-link">Balance
+							general</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	
+	
+	<script src="/bootstrap/js/jquery-3.4.1.min.js"></script>    
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

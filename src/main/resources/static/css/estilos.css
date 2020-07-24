@@ -1,0 +1,19 @@
+@charset "ISO-8859-1";
+
+.opcion{
+	width: 200px;
+	height: 60px;
+}
+
+.headFoot{
+	background-color: rgb(230,173,216);
+}
+
+#menu{
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: rgb(230,173,216);
+	position: fixed;
+	height: 40px;
+}

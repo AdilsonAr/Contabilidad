@@ -1,0 +1,84 @@
+<!-- Author: Adilson Arbuez -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/estilos.css" />
+<title>Control de cuentas</title>
+</head>
+<body>
+
+<div th:insert="Components::menu"></div>
+
+	<br>
+<br>
+<br>
+<div class="container">
+
+<th:block th:if="${result==true}">
+<p style="color: red">La ultima cuenta no se guardo, intentelo de nuevo</p>
+</th:block>
+
+<p>Insertar nueva cuenta</p>
+<form action="/NuevaCuenta" method="post">
+<label for="codigo">Codigo:&nbsp;</label> 
+<input type="number" name="codigo" id="codigo">
+<label for="descripcion">Descripcion:&nbsp;</label>
+<input type="text" name="descripcion" id="descripcion">
+<label for="saldo">Saldo:&nbsp;</label>
+<select name="saldo" id="saldo">
+<option value="Acreedor">Acreedor</option>
+<option value="Deudor">Deudor</option>
+</select>
+<label for="tipo">Tipo:&nbsp;</label>
+<select name="tipo" id="tipo">
+<option value="A">A</option>
+<option value="C">C</option>
+<option value="CR">CR</option>
+<option value="G">G</option>
+<option value="I">I</option>
+<option value="P">P</option>
+</select>
+<label for="nivel">Nivel:&nbsp;</label>
+<input type="number" name="nivel" id="nivel">
+<br> <br>
+<input type="submit" value="Agregar nueva cuenta">
+</form>
+
+
+<br>
+<table class="table">
+<tr>
+<td>Codigo</td>
+<td>Descripcion</td>
+<td>Saldo</td>
+<td>Tipo</td>
+<td>Nivel</td>
+</tr>
+<th:block th:if="${lista!=null}">
+
+<th:block th:each="lista: ${lista}">
+
+<tr>
+<td th:text="${lista.codigoCuenta}"></td>
+<td th:text="${lista.descripcion}"></td>
+<td th:text="${lista.saldo}"></td>
+<td th:text="${lista.tipo}"></td>
+<td th:text="${lista.nivel}"></td>
+
+</tr>
+
+</th:block>
+</th:block>
+</table>
+
+</div>
+
+	<script src="/bootstrap/js/jquery-3.4.1.min.js"></script>    
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
