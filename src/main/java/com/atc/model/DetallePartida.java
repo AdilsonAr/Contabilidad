@@ -25,6 +25,7 @@ public class DetallePartida {
 	private double debe;
 	@Column(name="haber")
 	private double haber;
+	
 	@ManyToOne(fetch = FetchType.LAZY, optional=false)
 	@JoinColumn(name="idPartida",nullable=false)
 	private Partida partida;

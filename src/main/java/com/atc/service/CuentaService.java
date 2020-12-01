@@ -13,46 +13,31 @@ import com.atc.repository.CuentaRepository;
  */
 @Service
 public class CuentaService{
-	private boolean loaded=false;
 	List<Cuenta> listaCuentas=new ArrayList<Cuenta>();
 	@Autowired
 	CuentaRepository cuentaRepository;
 	
 	public void save(Cuenta cuenta) {
 		cuentaRepository.save(cuenta);
-		load();
 	}
 	
 	public void update(Cuenta cuenta){
 		cuentaRepository.save(cuenta);
-		load();
 	}
 	
 	public Cuenta getOne(int codigo) {
 		return cuentaRepository.getOne(codigo);
 	}
 	
-	private void load() {
-		listaCuentas=cuentaRepository.findAll();
-	}
-	
 	public List<Cuenta> readByFamilia(String prefijo){
 		return cuentaRepository.findByCodigoCuentaStartingWith(prefijo);
 	}
 	
-	public List<Cuenta> getAll(){
-		if(loaded) {
-			return listaCuentas;
-		}
-		else {
-			listaCuentas=cuentaRepository.findAll();
-			loaded=true;
-		}
-		return listaCuentas;
+	public List<Cuenta> getAll() {
+		return cuentaRepository.findAll();
 	}
 	
 	public void delete(Cuenta cuenta) {
 		cuentaRepository.delete(cuenta);
-		load();
 	}
 }

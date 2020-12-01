@@ -11,6 +11,7 @@
 	<groupId>act</groupId>
 	<artifactId>com.atc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>Contabilidad</name>
 	<description>aplicacion contable de gran contribuyente</description>
 
