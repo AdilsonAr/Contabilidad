@@ -15,6 +15,7 @@
 <br>
 <br>
 <div class="container">
+<div th:insert="Components::info"></div>
 <form action="/Edicion" method="post">
 <input type="hidden" name="idPartida" th:value="${idPartida}">
 <input type="hidden" name="id" th:value="${detalle.id}">

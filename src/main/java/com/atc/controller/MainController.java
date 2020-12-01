@@ -21,13 +21,6 @@ import com.atc.service.ReportService;
 public class MainController{
 	@Autowired
 	CuentaService cuentaService;
-	
-	@GetMapping("/Login")
-	public String log()
-	{
-		return "Login";
-	}
-	
 	@GetMapping("/ControladorPartida")
 	public String controladorPartida() {
 		return "ControladorPartida";

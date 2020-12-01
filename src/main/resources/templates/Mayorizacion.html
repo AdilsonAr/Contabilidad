@@ -17,7 +17,7 @@
 <br>
 
 <div class="container">
-
+<div th:insert="Components::info"></div>
 <form action="/Mayorizacion/detalle" method="get">
 <label for="fecha">Desde:&nbsp;</label>
 <input type ="date" name="fecha1" id="fecha" th:value="${fecha1}">

@@ -18,6 +18,8 @@
 <br>
 <div class="container">
 
+<div th:insert="Components::info"></div>
+
 <th:block th:if="${result==true}">
 <p style="color: red">La ultima cuenta no se guardo, intentelo de nuevo</p>
 </th:block>
