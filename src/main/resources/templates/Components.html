@@ -11,38 +11,59 @@
 </head>
 <body>
 
-<div  id="menu" th:fragment="menu">
-		<nav class="navbar navbar-expand-lg navbar-light">
-
-			<button class="navbar-toggler" data-target="menu" data-toggle="collapse">
-				<span class="navbar-toggler-icon">
-					
-				</span>
+	<div id="menu" th:fragment="menu">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Con-01</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
 			</button>
-
-			<div class="collapse navbar-collapse" id="menu">
-				<ul class="navbar-nav mr-auto">
-					<li class="navbar-item"><a href="/ControladorPartida"
-						class="nav-link">Partidas</a></li>
-
-					<li class="navbar-item"><a href="/Mayorizacion"
-						class="nav-link">Mayorizacion</a></li>
-					<li class="navbar-item"><a href="/BalanzaComprobacion"
-						class="nav-link">Balanza de comprobacion</a></li>
-					<li class="navbar-item"><a href="/Resultados" class="nav-link">Estado
-							de resultados</a></li>
-
-					<li class="navbar-item"><a href="/Balance" class="nav-link">Balance
-							general</a></li>
-				</ul>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link active" href="/ControladorPartida">Partidas
+						<span class="sr-only">(current)</span>
+					</a> <a class="nav-link" href="/Mayorizacion">Mayorizacion</a> <a
+						class="nav-link" href="/BalanzaComprobacion">Balanza de
+						comprobacion</a> <a class="nav-link" href="/Resultados">Estado de
+						resultados</a> <a class="nav-link" href="/Balance">Balance general</a>
+				</div>
 			</div>
 		</nav>
+
 	</div>
 
-	<div class="alert alert-info" role="alert" th:fragment="info">
-		Libro diario y estados financieros con Spring boot y Thymeleaf <br>
-		<b> <em>por: Adilson Arbuez</em> | <a href="https://github.com/AdilsonAr/Contabilidad" target="_blank">ver en github</a>
-		</b>
+	<div class="jumbotron jumbotron-fluid" th:fragment="info">
+		<div class="container">
+			Libro diario y estados financieros con Spring boot y Thymeleaf <br>
+			<b> por: <em>Adilson Arbuez</em> | <a
+				href="https://github.com/AdilsonAr/Contabilidad" target="_blank">ver
+					en github</a>
+			</b>
+		</div>
+	</div>
+
+	<div th:fragment="contact">
+		<script type="text/javascript">
+			(function() {
+				var options = {
+					whatsapp : "73344961", // WhatsApp number
+					call_to_action : "Say hello!", // Call to action
+					position : "right", // Position may be 'right' or 'left'
+				};
+				var proto = document.location.protocol, host = "getbutton.io", url = proto
+						+ "//static." + host;
+				var s = document.createElement('script');
+				s.type = 'text/javascript';
+				s.async = true;
+				s.src = url + '/widget-send-button/js/init.js';
+				s.onload = function() {
+					WhWidgetSendButton.init(host, proto, options);
+				};
+				var x = document.getElementsByTagName('script')[0];
+				x.parentNode.insertBefore(s, x);
+			})();
+		</script>
 	</div>
 
 	<script src="/bootstrap/js/jquery-3.4.1.min.js"></script>    

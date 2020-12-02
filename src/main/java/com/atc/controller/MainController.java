@@ -40,7 +40,7 @@ public class MainController{
 		model.addAttribute("empty", empty);
 		return "LibroDiario";
 	}
-	
+	 
     @GetMapping("/LibroDiario/detalle")
     public String libro(Model model, @RequestParam("fecha1") String fecha1, @RequestParam("fecha2") String fecha2) {
     	List<Linea> lineas =new ArrayList<Linea>();
@@ -191,5 +191,24 @@ public class MainController{
     	model.addAttribute("empty", error);
     	return "Balance";
     }
-    
+
+	// Balance/detalle?fecha1=2020-11-30&fecha2=2020-12-30
+	@GetMapping("/demo")
+	public String balanceDemo(Model model) {
+
+		LocalDate fechaInicio = LocalDate.parse("2020-11-30");
+		LocalDate fechaFin = LocalDate.parse("2020-12-30");
+
+		model.addAttribute("fecha1", fechaInicio);
+		model.addAttribute("fecha2", fechaFin);
+
+		List<ClaveValor> balance = reportService.balance(fechaInicio, fechaFin);
+		boolean error = false;
+		if (balance.isEmpty()) {
+			error = true;
+		}
+		model.addAttribute("balance", balance);
+		model.addAttribute("empty", error);
+		return "Balance";
+	}
 }
